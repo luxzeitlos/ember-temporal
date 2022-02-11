@@ -14,6 +14,12 @@ module('Unit | Transform | temporal plain date', function (hooks) {
     assert.strictEqual(obj.day, 20);
   });
 
+  test('can deserialize null', function (assert) {
+    let transform = this.owner.lookup('transform:temporal-plain-date');
+    const obj = transform.deserialize(null);
+    assert.strictEqual(obj, null);
+  });
+
   test('it can serialize', function (assert) {
     let transform = this.owner.lookup('transform:temporal-plain-date');
     const str = transform.serialize(new Temporal.PlainDate(2020, 3, 2));

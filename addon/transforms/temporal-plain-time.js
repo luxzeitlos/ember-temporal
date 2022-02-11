@@ -3,7 +3,7 @@ import { Temporal } from '@js-temporal/polyfill';
 
 export default class TemporalPlainTimeTransform extends Transform {
   deserialize(serialized) {
-    return Temporal.PlainTime.from(serialized);
+    return serialized && Temporal.PlainTime.from(serialized);
   }
 
   serialize(deserialized) {

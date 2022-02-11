@@ -13,6 +13,12 @@ module('Unit | Transform | temporal plain month day', function (hooks) {
     assert.strictEqual(obj.day, 14);
   });
 
+  test('can deserialize null', function (assert) {
+    let transform = this.owner.lookup('transform:temporal-plain-month-day');
+    const obj = transform.deserialize(null);
+    assert.strictEqual(obj, null);
+  });
+
   test('it can serialize', function (assert) {
     let transform = this.owner.lookup('transform:temporal-plain-month-day');
     const str = transform.serialize(new Temporal.PlainMonthDay(2, 29));

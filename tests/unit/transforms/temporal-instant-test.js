@@ -11,6 +11,12 @@ module('Unit | Transform | temporal instant', function (hooks) {
     assert.strictEqual(obj.epochMilliseconds, -14182980000);
   });
 
+  test('can deserialize null', function (assert) {
+    let transform = this.owner.lookup('transform:temporal-instant');
+    const obj = transform.deserialize(null);
+    assert.strictEqual(obj, null);
+  });
+
   test('it can serialize', function (assert) {
     let transform = this.owner.lookup('transform:temporal-instant');
     const str = transform.serialize(new Temporal.Instant(0n));

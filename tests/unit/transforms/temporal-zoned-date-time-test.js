@@ -17,6 +17,12 @@ module('Unit | Transform | temporal zoned date time', function (hooks) {
     assert.strictEqual(obj.timeZone.id, 'Europe/Berlin');
   });
 
+  test('can deserialize null', function (assert) {
+    let transform = this.owner.lookup('transform:temporal-zoned-date-time');
+    const obj = transform.deserialize(null);
+    assert.strictEqual(obj, null);
+  });
+
   test('it can serialize', function (assert) {
     let transform = this.owner.lookup('transform:temporal-zoned-date-time');
     const str = transform.serialize(

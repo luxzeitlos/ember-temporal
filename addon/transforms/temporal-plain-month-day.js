@@ -3,7 +3,7 @@ import { Temporal } from '@js-temporal/polyfill';
 
 export default class TemporalPlainMonthDayTransform extends Transform {
   deserialize(serialized) {
-    return Temporal.PlainMonthDay.from(serialized);
+    return serialized && Temporal.PlainMonthDay.from(serialized);
   }
 
   serialize(deserialized) {

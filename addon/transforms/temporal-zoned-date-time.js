@@ -3,7 +3,7 @@ import { Temporal } from '@js-temporal/polyfill';
 
 export default class TemporalZonedDateTimeTransform extends Transform {
   deserialize(serialized) {
-    return Temporal.ZonedDateTime.from(serialized);
+    return serialized && Temporal.ZonedDateTime.from(serialized);
   }
 
   serialize(deserialized) {

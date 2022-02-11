@@ -14,6 +14,12 @@ module('Unit | Transform | temporal plain time', function (hooks) {
     assert.strictEqual(obj.second, 15);
   });
 
+  test('can deserialize null', function (assert) {
+    let transform = this.owner.lookup('transform:temporal-plain-time');
+    const obj = transform.deserialize(null);
+    assert.strictEqual(obj, null);
+  });
+
   test('it can serialize', function (assert) {
     let transform = this.owner.lookup('transform:temporal-plain-time');
     const str = transform.serialize(new Temporal.PlainTime(2, 29));
