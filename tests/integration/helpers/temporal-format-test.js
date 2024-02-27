@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render,  } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { Temporal } from '@js-temporal/polyfill';
 
@@ -50,7 +50,7 @@ module('Integration | Helper | temporal-format', function (hooks) {
         timeZone: 'America/Los_Angeles',
         year: 1995,
         month: 12,
-        day: 7,
+        day: 17,
         hour: 3,
         minute: 24,
         second: 30,
@@ -60,7 +60,12 @@ module('Integration | Helper | temporal-format', function (hooks) {
       }),
     );
     await render(hbs`{{temporal-format this.value locale="de-DE"}}`);
-    assert.dom(this.element).hasText('7.12.1995, 03:24:30 GMT-8');
+
+    assert.ok([
+      // browsers are different
+      '17.12.1995, 3:24:30 GMT-8',
+      '17.12.1995, 03:24:30 GMT-8',
+    ].includes(this.element.textContent), 'Renders a valid string');
   });
 
   test('it renders an Temporal.PlainDate', async function (assert) {
