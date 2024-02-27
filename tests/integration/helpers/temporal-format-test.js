@@ -111,7 +111,7 @@ module('Integration | Helper | temporal-format', function (hooks) {
         calendar: 'gregory',
       })
     );
-    await render(hbs`{{temporal-format this.value}}`);
+    await render(hbs`{{temporal-format this.value locale="de-DE"}}`);
     assert.dom(this.element).hasText('10.2020');
   });
 

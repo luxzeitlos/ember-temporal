@@ -14,7 +14,7 @@ module('Unit | Transform | temporal zoned date time', function (hooks) {
     assert.strictEqual(obj.year, 2020);
     assert.strictEqual(obj.month, 8);
     assert.strictEqual(obj.hour, 20);
-    assert.strictEqual(obj.timeZone.id, 'Europe/Berlin');
+    assert.strictEqual(obj.timeZoneId, 'Europe/Berlin');
   });
 
   test('can deserialize null', function (assert) {
