@@ -1,5 +1,4 @@
-ember-temporal
-==============================================================================
+# ember-temporal
 
 This addon aims to provide ember specific tooling for the TC39
 [proposal-temporal](https://github.com/tc39/proposal-temporal).
@@ -16,24 +15,21 @@ nice:
   local to work nicely with tools like `ember-intl`.
 - This addon provides `ember-data` transforms for the temporal datatypes.
 
-Compatibility
-------------------------------------------------------------------------------
+## Compatibility
 
-* Ember.js v3.24 or above
-* Ember CLI v3.24 or above
-* Node.js v12 or above
+* Ember.js v4.4 or above
+* Ember CLI v4.4 or above
+* Node.js v16 or above
 
 
-Installation
-------------------------------------------------------------------------------
+## Installation
 
 ```
 ember install ember-temporal
 ```
 
 
-Usage
-------------------------------------------------------------------------------
+## Usage
 
 ## Helpers
 
@@ -78,13 +74,11 @@ The following transforms are provided:
 - `temporal-zoned-date-time`
 
 
-Contributing
-------------------------------------------------------------------------------
+## Contributing
 
 See the [Contributing](CONTRIBUTING.md) guide for details.
 
 
-License
-------------------------------------------------------------------------------
+## License
 
 This project is licensed under the [MIT License](LICENSE.md).
