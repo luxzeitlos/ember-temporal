@@ -25,7 +25,7 @@ module('Unit | Transform | temporal plain date time', function (hooks) {
   test('it can serialize', function (assert) {
     let transform = this.owner.lookup('transform:temporal-plain-date-time');
     const str = transform.serialize(
-      new Temporal.PlainDateTime(2020, 3, 2, 17, 33, 15)
+      new Temporal.PlainDateTime(2020, 3, 2, 17, 33, 15),
     );
     assert.strictEqual(str, '2020-03-02T17:33:15');
   });

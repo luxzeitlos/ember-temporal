@@ -16,7 +16,7 @@ module('Integration | Helper | temporal-format', function (hooks) {
   test('providing individual option will only overwrite that individual option', async function (assert) {
     this.set('value', Temporal.Instant.from('1969-07-03T20:17Z'));
     await render(
-      hbs`{{temporal-format this.value locale="de-DE" day="2-digit"}}`
+      hbs`{{temporal-format this.value locale="de-DE" day="2-digit"}}`,
     );
     assert.dom(this.element).hasText('03.7.1969, 21:17:00');
   });
@@ -24,7 +24,7 @@ module('Integration | Helper | temporal-format', function (hooks) {
   test('providing options will overwrite all options', async function (assert) {
     this.set('value', Temporal.Instant.from('1969-07-03T20:17Z'));
     await render(
-      hbs`{{temporal-format this.value locale="de-DE" options=(hash day="2-digit")}}`
+      hbs`{{temporal-format this.value locale="de-DE" options=(hash day="2-digit")}}`,
     );
     assert.dom(this.element).hasText('03');
   });
@@ -57,7 +57,7 @@ module('Integration | Helper | temporal-format', function (hooks) {
         millisecond: 0,
         microsecond: 3,
         nanosecond: 500,
-      })
+      }),
     );
     await render(hbs`{{temporal-format this.value locale="de-DE"}}`);
     assert.dom(this.element).hasText('7.12.1995, 03:24:30 GMT-8');
@@ -66,7 +66,7 @@ module('Integration | Helper | temporal-format', function (hooks) {
   test('it renders an Temporal.PlainDate', async function (assert) {
     this.set(
       'value',
-      Temporal.PlainDate.from({ year: 2006, month: 8, day: 24 })
+      Temporal.PlainDate.from({ year: 2006, month: 8, day: 24 }),
     );
     await render(hbs`{{temporal-format this.value locale="de-DE"}}`);
     assert.dom(this.element).hasText('24.8.2006');
@@ -82,7 +82,7 @@ module('Integration | Helper | temporal-format', function (hooks) {
         millisecond: 68,
         microsecond: 346,
         nanosecond: 205,
-      })
+      }),
     );
     await render(hbs`{{temporal-format this.value locale="de-DE"}}`);
     assert.dom(this.element).hasText('19:39:09');
@@ -96,7 +96,7 @@ module('Integration | Helper | temporal-format', function (hooks) {
         month: 12,
         day: 7,
         hour: 15,
-      })
+      }),
     );
     await render(hbs`{{temporal-format this.value locale="de-DE"}}`);
     assert.dom(this.element).hasText('7.12.1995, 15:00:00');
@@ -109,7 +109,7 @@ module('Integration | Helper | temporal-format', function (hooks) {
         year: 2020,
         month: 10,
         calendar: 'gregory',
-      })
+      }),
     );
     await render(hbs`{{temporal-format this.value locale="de-DE"}}`);
     assert.dom(this.element).hasText('10.2020');
@@ -122,7 +122,7 @@ module('Integration | Helper | temporal-format', function (hooks) {
         monthCode: 'M07',
         day: 14,
         calendar: 'gregory',
-      })
+      }),
     );
     await render(hbs`{{temporal-format this.value locale="de-DE"}}`);
     assert.dom(this.element).hasText('14.7.');
@@ -134,7 +134,7 @@ module('Integration | Helper | temporal-format', function (hooks) {
       Temporal.Duration.from({
         hours: 5,
         minutes: 20,
-      })
+      }),
     );
     await render(hbs`{{temporal-format this.value locale="de-DE"}}`);
     assert.dom(this.element).hasText('PT5H20M');
