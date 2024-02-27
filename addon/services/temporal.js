@@ -71,7 +71,12 @@ export default class TemporalService extends Service {
   }
 
   get optionsForPlainYearMonth() {
-    return this.options;
+    const options = this.extractOptions(this.options);
+    delete options.day;
+    delete options.hour;
+    delete options.minute;
+    delete options.second;
+    return options;
   }
 
   get optionsForPlainMonthDay() {
